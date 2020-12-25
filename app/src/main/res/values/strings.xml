@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TodoMemo</string>
+
+    <string-array name="colorList">
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Green</item>
+        <item>Purple</item>
+        <item>Blue</item>
+
+    </string-array>
+</resources>

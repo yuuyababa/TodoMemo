@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+
+    >
+
+    <TextView
+        android:id="@+id/taskTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/primaryColor"
+        android:text="タスク"
+        android:layout_margin="10dp"
+        android:paddingTop="16dp"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:id="@+id/editTaskSetting"
+        android:layout_toRightOf="@id/taskTitle"
+        android:layout_above="@+id/editColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:hint="タスクの中身" />
+
+
+    <TextView
+        android:id="@+id/primaryColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="タスクの色"
+        android:layout_centerVertical="true"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:paddingBottom="16dp"
+
+
+        />
+
+    <Spinner
+        android:id="@+id/editColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/colorList"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:spinnerMode="dialog" />
+
+    <Button
+        android:id="@+id/addTask"
+        android:layout_below="@+id/primaryColor"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="16dp"
+        android:text="決定" />
+
+
+</RelativeLayout>
