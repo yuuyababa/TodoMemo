@@ -19,10 +19,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //タスク追加画面に遷移するボタン
         testAddButton.setOnClickListener(this)
 
-
         /******カレンダーウィジェットの設定******/
         taskCalenderView()
-
 
     }
 
@@ -33,10 +31,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
-    fun taskCalenderView(){
+    fun taskCalenderView() {
         //CalendarViewに現在日時を指定する。
         val calendarView = findViewById<CalendarView>(R.id.TaskCalendar)
-        calendarView.date=System.currentTimeMillis()
+        calendarView.date = System.currentTimeMillis()
 
         //CalendarViewで日にちが選択された時に呼び出されるリスナークラス。
         val listener = DateChangeListener()
@@ -44,36 +42,43 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    fun moveTaskList(year: Int, month: Int, day: Int) {
+
+        var intent = Intent(this@MainActivity, taskList::class.java)
+
+        intent.putExtra("year", year)
+        intent.putExtra("month", month)
+        intent.putExtra("day", day)
+
+        var requestcode = 1000
+        intent.putExtra("requestcode", requestcode)
+
+
+        if (intent.resolveActivity(packageManager) != null) {
+
+            this@MainActivity.startActivity(intent)
+
+        }
+    }
+
     //calenderViewで日にちが選択された時に呼び出されるリスナークラス
-    private inner class DateChangeListener: CalendarView.OnDateChangeListener{
+    private inner class DateChangeListener : CalendarView.OnDateChangeListener {
         override fun onSelectedDayChange(
             view: CalendarView,
             year: Int,
             month: Int,
             dayOfMonth: Int
         ) {
-            //選択された日程のタスクを取り出す？
-            //日程の情報を引数として渡す。
-            var intent = Intent(this@MainActivity, taskList::class.java).apply {
 
-                intent.putExtra("year",year)
-                intent.putExtra("month",month)
-                intent.putExtra("day",dayOfMonth)
-
-                var requestcode = 1000
-                intent.putExtra("requestcode",requestcode)
-
-            }
-            startActivity(intent)
-
-            
-
-
-
+            //カレンダークラスから別画面に移動するための関数
+            moveTaskList(year, month, dayOfMonth)
 
         }
 
     }
 
+
 }
+
+
 

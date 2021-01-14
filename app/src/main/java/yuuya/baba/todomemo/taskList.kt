@@ -20,16 +20,20 @@ class taskList : AppCompatActivity() {
 
     fun setData() {
         val intent = getIntent()
-        val selectYear = intent.getStringExtra("year")
-        val selectMonth = intent.getStringExtra("month")
-        val selectDay = intent.getStringExtra("day")
-        val code = intent.getStringExtra("requestcode")
+        val selectYear = intent.getIntExtra("year", 200)
+        val selectMonth = intent.getIntExtra("month", 200)
+        val selectDay = intent.getIntExtra("day", 200)
+        val code = intent.getIntExtra("requestcode", 200)
 
-        if (code == "1000") {
-
+        if (code == 1000) {
 
             var daySet = findViewById<TextView>(R.id.intentTitle)
-            daySet.setText(selectDay)
+
+            if (daySet != null) {
+
+               var strDay = selectDay.toString()
+                daySet.setText(strDay)
+            }
         }
 
     }
