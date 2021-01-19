@@ -22,14 +22,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         /******カレンダーウィジェットの設定******/
         taskCalenderView()
 
-    }
-
-    override fun onClick(v: View?) {
-        val intent = Intent(this, taskSetting::class.java).apply {
-
+        /*タスク追加画面の呼び出しボタン*/
+        val fab :View = findViewById(R.id.mainfab)
+        fab.setOnClickListener{view ->
+            val intent = Intent(this, taskSetting::class.java)
+            startActivity(intent)
         }
-        startActivity(intent)
+
     }
+
 
     fun taskCalenderView() {
         //CalendarViewに現在日時を指定する。
