@@ -9,15 +9,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.CalendarView
 import android.widget.Toast
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
     //追加ボタンを入力時、タスク追加画面に飛ぶ。
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //タスク追加画面に遷移するボタン
-        testAddButton.setOnClickListener(this)
 
         /******カレンダーウィジェットの設定******/
         taskCalenderView()
